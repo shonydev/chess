@@ -12,5 +12,19 @@
       "position": "Transcribed from exercise 1 on the printed page 7.",
       "solution": "Checked against the book's solutions section: exercise 1 is a rook capture on a6 ending in mate."
     }
+  },
+  {
+    "id": 2,
+    "chapter": "Mate en una jugada",
+    "bookPage": 7,
+    "sideToMove": "w",
+    "fen": "r2B3k/5p1p/8/8/8/b7/7P/K5R1 w - - 0 1",
+    "solutionUci": ["d8f6"],
+    "solutionSan": ["Af6#"],
+    "status": "verified",
+    "verification": {
+      "position": "Transcribed from exercise 2 on the printed page 7; piece placement checked against the diagram.",
+      "solution": "Checked against the book's solutions section: exercise 2 is Bf6 mate in one."
+    }
   }
 ]
