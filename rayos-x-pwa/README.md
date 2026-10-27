@@ -1,32 +1,31 @@
-# Rayos X PWA — primera versión funcional
+# Rayos X PWA
 
-Aplicación web instalable y usable offline para practicar ejercicios de ajedrez. Se integra en esta carpeta para revisión antes del merge.
-
-## Qué incluye esta versión
-
-- Interfaz responsive en español y tablero interactivo.
-- Primer ejercicio de **Mate en una jugada** (página impresa 7 del libro).
-- Validación del movimiento esperado, pista y reinicio de posición.
-- Progreso guardado en `localStorage`.
-- Vista de ejercicios y configuración PWA básica (manifest + service worker).
+PWA estática para practicar ejercicios de ajedrez. La interfaz carga las posiciones desde JSON separado y guarda el progreso en el dispositivo.
 
 ## Ejecutar localmente
 
-Serví esta carpeta con cualquier servidor estático, por ejemplo:
+Desde la raíz del repositorio:
 
-```sh
-python3 -m http.server 8000
-```
+    python3 -m http.server 8000
 
-Después abrí `http://localhost:8000/rayos-x-pwa/` (si el servidor está en la raíz del repo) o la ruta correspondiente a la carpeta servida. Para probar el modo offline, abrí la app una vez desde localhost y luego desconectá la red.
+Abrí http://localhost:8000/rayos-x-pwa/. El service worker y la instalación PWA requieren HTTPS o localhost.
 
-## Alcance y limitaciones conocidas
+## Incluido en esta versión
 
-- Por ahora hay **un único ejercicio** cargado; los siguientes deben transcribirse y validarse antes de agregarlos.
-- Esta es una primera implementación funcional para habilitar la revisión. **La copia fiel de todos los archivos y detalles visuales del ZIP original todavía queda pendiente**; la UI de esta versión es una implementación compacta.
-- La validación comprueba el movimiento de solución del ejercicio, no implementa un motor completo de reglas de ajedrez.
-- La instalación y el service worker requieren servir la app por HTTPS o localhost.
+- Tablero responsive con selección de casillas.
+- Carga asíncrona desde data/mate-en-una.json.
+- Pista, reinicio de posición, navegación entre ejercicios y vista de lista.
+- Progreso por ejercicio guardado en localStorage.
+- Service worker que precarga la app y el JSON para uso offline.
 
-## Datos del ejercicio
+## Alcance y limitaciones
 
-El ejercicio 1 está en `data/mate-en-una.json`; la vista inicial actual lo incluye de forma directa para mantener el MVP autocontenido. La siguiente iteración debe conectar la interfaz al JSON y ampliar el lote después de validar cada posición y solución.
+- Por ahora hay un único ejercicio de «Mate en una jugada» (ejercicio 1, página impresa 7).
+- La comprobación compara el movimiento del usuario con la primera jugada de solución; no sustituye un motor completo de reglas de ajedrez.
+- Los datos del libro se incorporan únicamente después de cotejar posición y solución. No completar posiciones por OCR sin verificación.
+- Pendiente: reemplazar esta interfaz compacta por la interfaz original del ZIP rayos-x-pwa.zip y recuperar sus iconos originales. El ZIP original se ha conservado como referencia de trabajo, pero esos archivos todavía no están versionados en este directorio.
+- Pendiente: ejecutar pruebas en navegador móvil/escritorio e instalación/offline. No se debe considerar esa verificación completada hasta probarla.
+
+## Formato de datos
+
+Cada ejercicio incluye id, chapter, bookPage, sideToMove, fen, solutionUci, solutionSan, status y una nota de verificación. Consultá data/README.md.
