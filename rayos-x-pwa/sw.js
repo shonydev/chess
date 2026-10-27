@@ -1,4 +1,4 @@
-const CACHE = 'rayosx-v5';
+const CACHE = 'rayosx-v6';
 const ASSETS = [
   './',
   './index.html',
