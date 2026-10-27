@@ -1,11 +1,38 @@
 # Chess
 
-## Rayos X — entrenador de ejercicios
+Aplicación web progresiva para practicar ejercicios de táctica de ajedrez a partir de posiciones verificadas del libro *1001 Chess Exercises*.
 
-**Probar la app:** https://shonydev.github.io/chess/
+**Aplicación:** https://shonydev.github.io/chess/
 
-La PWA está en [`rayos-x-pwa/`](rayos-x-pwa/). Permite practicar el ejercicio disponible, consultar pistas, comprobar la solución y guardar el progreso localmente. El despliegue automático a GitHub Pages ya está configurado; cada actualización de esa carpeta en `main` publica una nueva versión. Por ahora incluye un ejercicio verificado.
+## Estructura del repositorio
 
-- [Código de la PWA](rayos-x-pwa/)
-- [Datos de ejercicios](rayos-x-pwa/data/)
-- [Workflow de despliegue](.github/workflows/deploy-pages.yml)
+```text
+chess/
+├── .github/workflows/       # Validación y despliegue automático
+├── app/                     # Aplicación web estática (PWA)
+│   ├── data/                # Catálogo de ejercicios en JSON
+│   ├── index.html           # Interfaz y lógica del tablero
+│   ├── manifest.webmanifest
+│   └── sw.js                # Caché y soporte sin conexión
+├── docs/source-materials/   # Libros y documentos de referencia
+├── scripts/                 # Validaciones locales y CI
+└── README.md
+```
+
+## Desarrollo local
+
+Desde la raíz del repositorio:
+
+```bash
+python3 -m http.server 8000
+```
+
+Abrí http://localhost:8000/app/. Para probar la instalación PWA y el service worker, usá HTTPS o localhost.
+
+## Flujo de trabajo
+
+- Los ejercicios se mantienen en `app/data/mate-en-una.json`.
+- Cada posición se coteja con el diagrama original y su solución antes de marcarla como verificada.
+- Las comprobaciones automáticas se ejecutan con `node scripts/check-chess.mjs`.
+- Los cambios en `app/` se publican automáticamente en GitHub Pages.
+- El material de referencia se conserva en `docs/source-materials/`.

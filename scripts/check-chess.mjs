@@ -1,11 +1,11 @@
 import { readFileSync } from 'node:fs';
 
-const html = readFileSync('rayos-x-pwa/index.html', 'utf8');
+const html = readFileSync('app/index.html', 'utf8');
 const match = html.match(/<script>([\s\S]*?)<\/script>/i);
 if (!match) throw new Error('No se encontró el script de la aplicación');
 new Function(match[1]);
 
-const puzzles = JSON.parse(readFileSync('rayos-x-pwa/data/mate-en-una.json', 'utf8'));
+const puzzles = JSON.parse(readFileSync('app/data/mate-en-una.json', 'utf8'));
 if (!Array.isArray(puzzles) || puzzles.length === 0) throw new Error('El catálogo está vacío');
 
 for (const [i, puzzle] of puzzles.entries()) {

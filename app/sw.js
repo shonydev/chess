@@ -1,4 +1,4 @@
-const CACHE = 'rayosx-v6';
+const CACHE = 'chess-v1';
 const ASSETS = [
   './',
   './index.html',
