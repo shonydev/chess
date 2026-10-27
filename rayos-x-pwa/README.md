@@ -1,21 +1,32 @@
-# Rayos X PWA — integración
+# Rayos X PWA — primera versión funcional
 
-Esta carpeta alojará la interfaz reutilizable de Rayos X PWA dentro de este repositorio, separada del material de referencia de ajedrez.
+Aplicación web instalable y usable offline para practicar ejercicios de ajedrez. Se integra en esta carpeta para revisión antes del merge.
 
-## Objetivo
+## Qué incluye esta versión
 
-- Conservar la interfaz y el comportamiento instalable de la PWA original.
-- Separar los datos de ejercicios de la UI para poder reutilizar el tablero.
-- Empezar por el capítulo **Mate en una jugada**, respetando el orden del libro.
-- Validar cada posición, el bando que juega y la solución antes de publicarla.
+- Interfaz responsive en español y tablero interactivo.
+- Primer ejercicio de **Mate en una jugada** (página impresa 7 del libro).
+- Validación del movimiento esperado, pista y reinicio de posición.
+- Progreso guardado en `localStorage`.
+- Vista de ejercicios y configuración PWA básica (manifest + service worker).
 
-## Estado inicial
+## Ejecutar localmente
 
-Este commit prepara la ubicación y los criterios de integración. La aplicación original todavía debe copiarse aquí y adaptarse; no se considera que los ejercicios estén cargados ni validados todavía.
+Serví esta carpeta con cualquier servidor estático, por ejemplo:
 
-## Próximos pasos
+```sh
+python3 -m http.server 8000
+```
 
-1. Incorporar los archivos fuente de la PWA original.
-2. Extraer y validar un primer lote de posiciones del capítulo inicial.
-3. Integrar los ejercicios como datos independientes de la interfaz.
-4. Probar la navegación, las jugadas, el progreso guardado y el funcionamiento offline.
+Después abrí `http://localhost:8000/rayos-x-pwa/` (si el servidor está en la raíz del repo) o la ruta correspondiente a la carpeta servida. Para probar el modo offline, abrí la app una vez desde localhost y luego desconectá la red.
+
+## Alcance y limitaciones conocidas
+
+- Por ahora hay **un único ejercicio** cargado; los siguientes deben transcribirse y validarse antes de agregarlos.
+- Esta es una primera implementación funcional para habilitar la revisión. **La copia fiel de todos los archivos y detalles visuales del ZIP original todavía queda pendiente**; la UI de esta versión es una implementación compacta.
+- La validación comprueba el movimiento de solución del ejercicio, no implementa un motor completo de reglas de ajedrez.
+- La instalación y el service worker requieren servir la app por HTTPS o localhost.
+
+## Datos del ejercicio
+
+El ejercicio 1 está en `data/mate-en-una.json`; la vista inicial actual lo incluye de forma directa para mantener el MVP autocontenido. La siguiente iteración debe conectar la interfaz al JSON y ampliar el lote después de validar cada posición y solución.
