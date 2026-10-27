@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "chapter": "Mate en una jugada",
+    "bookPage": 7,
+    "sideToMove": "w",
+    "fen": "kr6/1p6/p7/4b3/8/8/1P4BP/R6K w - - 0 1",
+    "solutionUci": ["a1a6"],
+    "solutionSan": ["Txa6#"],
+    "status": "verified",
+    "verification": {
+      "position": "Transcribed from exercise 1 on the printed page 7.",
+      "solution": "Checked against the book's solutions section: exercise 1 is a rook capture on a6 ending in mate."
+    }
+  }
+]
