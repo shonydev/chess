@@ -26,5 +26,19 @@
       "position": "Transcribed from exercise 2 on the printed page 7; piece placement checked against the diagram.",
       "solution": "Checked against the book's solutions section: exercise 2 is Bf6 mate in one."
     }
+  },
+  {
+    "id": 3,
+    "chapter": "Mate en una jugada",
+    "bookPage": 7,
+    "sideToMove": "w",
+    "fen": "8/R6p/4pkp1/3rN3/3P3P/6P1/2n3K1/8 w - - 0 1",
+    "solutionUci": ["a7f7"],
+    "solutionSan": ["Tf7#"],
+    "status": "verified",
+    "verification": {
+      "position": "Transcribed from exercise 3 on the printed page 7; all pieces and squares checked against the diagram.",
+      "solution": "Checked against the book's solutions section: exercise 3 is Rf7 mate in one."
+    }
   }
 ]
