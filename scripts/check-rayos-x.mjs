@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 
 const html = readFileSync('rayos-x-pwa/index.html', 'utf8');
-const match = html.match(/<script>([\\s\\S]*?)<\\/script>/i);
+const match = html.match(/<script>([\s\S]*?)<\/script>/i);
 if (!match) throw new Error('No se encontró el script de la aplicación');
 new Function(match[1]);
 
