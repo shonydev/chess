@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - "rayos-x-pwa/**"
+      - "scripts/check-rayos-x.mjs"
       - ".github/workflows/rayos-x-check.yml"
   pull_request:
     paths:
       - "rayos-x-pwa/**"
+      - "scripts/check-rayos-x.mjs"
       - ".github/workflows/rayos-x-check.yml"
 
 jobs:
